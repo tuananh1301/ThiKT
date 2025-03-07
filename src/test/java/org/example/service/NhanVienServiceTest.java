@@ -43,21 +43,21 @@ public class NhanVienServiceTest {
     void updateKHL() {
         NhanVien nhanVien = new NhanVien("MH1", "A", 18, 18000, 20, "B");
         serviceNhanVien.add(nhanVien);
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", null, 17, 18000, 20, "B")));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", null, 17, 18000, 20, "B")));
         assertEquals("ten khong duoc null", exception.getMessage());
     }
     @Test
     void updateKHL1() {
         NhanVien nhanVien = new NhanVien("MH1", "A", 20, 18000, 20, "B");
         serviceNhanVien.add(nhanVien);
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", "null", 17, 18000, 20, "B")));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", "null", 17, 18000, 20, "B")));
         assertEquals("tuoi khong nho hon 18", exception.getMessage());
     }
     @Test
     void updateKHL2() {
         NhanVien nhanVien = new NhanVien("MH1", "A", 18, 18000, 20, "B");
         serviceNhanVien.add(nhanVien);
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", null, 17, 18000, 20, "B")));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> serviceNhanVien.updateStudent(new NhanVien("MH1", "null", 17, 18000, 20, null)));
         assertEquals("ten khong duoc null", exception.getMessage());
     }
 
